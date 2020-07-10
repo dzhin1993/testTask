@@ -1,4 +1,4 @@
-package zhynkoilya.tourist_bot.util;
+package zhynkoilya.tourist_bot.util.exception;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {
