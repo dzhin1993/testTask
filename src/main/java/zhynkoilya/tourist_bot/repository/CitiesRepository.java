@@ -8,15 +8,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import zhynkoilya.tourist_bot.model.City;
 
-import java.util.List;
-
 import static zhynkoilya.tourist_bot.util.CityValidationUtil.*;
 
 @Repository
 public interface CitiesRepository extends JpaRepository<City, Integer> {
 
-    @Override
-    List<City> findAll();
+    City getByCity(String city);
 
     default City get(int id) {
         return checkFoundOptional(findById(id), id);
