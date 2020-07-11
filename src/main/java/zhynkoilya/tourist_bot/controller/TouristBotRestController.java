@@ -9,6 +9,10 @@ import zhynkoilya.tourist_bot.repository.CitiesRepository;
 
 import java.util.List;
 
+/**
+ * Used to manage of cities data through the rest api
+ */
+
 @RestController
 @RequestMapping(value = "admin/cities", produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
