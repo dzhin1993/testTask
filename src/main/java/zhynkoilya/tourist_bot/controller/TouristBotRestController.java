@@ -7,15 +7,16 @@ import org.springframework.web.bind.annotation.*;
 import zhynkoilya.tourist_bot.model.City;
 import zhynkoilya.tourist_bot.repository.CitiesRepository;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
  * Used to manage of cities data through the rest api
  */
 
+@Slf4j
 @RestController
 @RequestMapping(value = "admin/cities", produces = MediaType.APPLICATION_JSON_VALUE)
-@Slf4j
 public class TouristBotRestController {
 
     private final CitiesRepository repository;
@@ -45,14 +46,14 @@ public class TouristBotRestController {
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@RequestBody City city, @PathVariable("id") int id) {
+    public void update(@RequestBody @Valid City city, @PathVariable("id") int id) {
         city.setId(id);
         log.info("update {}", city);
         repository.update(city, id);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public City save(@RequestBody City city) {
+    public City save(@RequestBody @Valid City city) {
         log.info("create {}", city);
         return repository.create(city);
     }
