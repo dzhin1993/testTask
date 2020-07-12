@@ -19,7 +19,7 @@ public class BotConfig {
     private String botToken;
 
     @Bean
-    public TouristTelegramBot MySuperTelegramBot() {
+    public TouristTelegramBot telegramBot() {
         DefaultBotOptions options = ApiContext.getInstance(DefaultBotOptions.class);
 
         TouristTelegramBot touristTelegramBot = new TouristTelegramBot(options);
