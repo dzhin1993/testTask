@@ -24,6 +24,9 @@ webHookPath: `{your-domain}`
 
 Follow the steps to get it runs in local.
 
+**clone repository**  
+`git clone https://github.com/dzhin1993/testTask.git`
+
 **Run ngrok**  
 Download ngrok from [here](https://ngrok.com/download).  
 Run it from the command line:  
@@ -40,7 +43,6 @@ After that you have to set your-domain using api.telegram
 You can run the application from your IDE, or you can run it from the command line:
 
 ```
-git clone https://github.com/dzhin1993/testTask.git
 cd testTask
 mvn compile
 mvn spring-boot:run

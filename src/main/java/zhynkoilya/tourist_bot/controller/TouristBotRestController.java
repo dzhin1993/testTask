@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * Used to manage of cities data through the rest api
+ * Used to manage of cities data through via rest api
  */
 
 @Slf4j
@@ -47,7 +47,6 @@ public class TouristBotRestController {
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@RequestBody @Valid City city, @PathVariable("id") int id) {
-        city.setId(id);
         log.info("update {}", city);
         repository.update(city, id);
     }
