@@ -1,4 +1,4 @@
-package zhynkoilya.tourist_bot.appconfig;
+package zhynkoilya.tourist_bot.telegram;
 
 import lombok.Getter;
 import lombok.Setter;
