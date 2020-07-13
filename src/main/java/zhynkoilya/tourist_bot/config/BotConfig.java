@@ -1,4 +1,4 @@
-package zhynkoilya.tourist_bot.telegram;
+package zhynkoilya.tourist_bot.config;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.meta.ApiContext;
+import zhynkoilya.tourist_bot.telegram.TouristTelegramBot;
 
 @Setter
 @Getter

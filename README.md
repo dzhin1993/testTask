@@ -53,23 +53,30 @@ mvn spring-boot:run
 #### Talk with the bot
 
 <hr>
-When you type a city name to your bot (http://localhost:8080) the Spring Boot application will try to poll your messages and send appropriate answers to the chat with your bot.
+When you type a city name to your bot the Spring Boot application will try to poll your messages and send appropriate answers to the chat with your bot.
 <hr>
 
-#### curl samples for crud operations via rest api
-You can manage cities data (CRUD operations) here: http://localhost:8080/admin/cities.
+#### City ​​data management via api rest api
+
+Admin can manage cities data (CRUD operations) here: http://localhost:8080/admin/cities.
+
+Authentication:  
+  name: `admin`  
+  password: `password`
+
+##### curl samples for crud operations via rest api
 
 ##### get All cities
-`curl -s http://localhost:8080/admin/cities`
+`curl -s http://localhost:8080/admin/cities --user admin:password`
 
 ##### get city 1
-`curl -s http://localhost:8080/admin/cities/1`
+`curl -s http://localhost:8080/admin/cities/1 --user admin:password`
 
 ##### delete city 5
-`curl -s -X DELETE http://localhost:8080/admin/cities/5`
+`curl -s -X DELETE http://localhost:8080/admin/cities/5 --user admin:password`
 
 ##### create city
-`curl -s -X POST -d '{"city":"new city", "message":"new city created"}' -H 'Content-Type:application/json;charset=UTF-8' http://localhost:8080/admin/cities`
+`curl -s -X POST -d '{"city":"new city", "message":"new city created"}' -H 'Content-Type:application/json;charset=UTF-8' http://localhost:8080/admin/cities  --user admin:password`
 
 ##### update city 1
-`curl -s -X PUT -d '{"city":"updated", "message":"city updated"}' -H 'Content-Type: application/json' http://localhost:8080/admin/cities/1`
+`curl -s -X PUT -d '{"city":"updated", "message":"city updated"}' -H 'Content-Type: application/json' http://localhost:8080/admin/cities/1 --user admin:password`
