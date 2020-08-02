@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import zhynkoilya.tourist_bot.service.TelegramBotService;
@@ -24,10 +25,10 @@ public class TouristTelegramBot extends TelegramWebhookBot {
 
     @Override
     public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
-        if (update.getMessage() != null && update.getMessage().hasText()) {
-            long id = update.getMessage().getChatId();
+        Message message = update.getMessage();
+        if (message != null && message.hasText()) {
             try {
-                execute(service.createSendMessage(id, update));
+                execute(service.createSendMessage(message));
             } catch (TelegramApiException e) {
                 e.printStackTrace();
             }

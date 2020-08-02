@@ -3,7 +3,7 @@ package zhynkoilya.tourist_bot.service;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import zhynkoilya.tourist_bot.model.City;
 import zhynkoilya.tourist_bot.repository.CitiesRepository;
 
@@ -20,22 +20,22 @@ public class TelegramBotService {
         this.messageSource = messageSource;
     }
 
-    public SendMessage createSendMessage(long id, Update update) {
-        String inputMessage = update.getMessage().getText();
+    public SendMessage createSendMessage(Message message) {
+        String inputMessage = message.getText();
         String replyMessage;
 
         if (inputMessage.equals("/start")) {
-            replyMessage = getMessage("reply.askCity");
+            replyMessage = getResponse("reply.askCity");
         } else {
-            City city = repository.getByCity(inputMessage);
-            replyMessage = city != null ? city.getMessage() : getMessage("reply.notFoundCity");
+            City city = repository.getByName(inputMessage);
+            replyMessage = city != null ? city.getMessage() : getResponse("reply.notFoundCity");
         }
 
-        return new SendMessage(id, replyMessage);
+        return new SendMessage(message.getChatId(), replyMessage);
     }
 
 
-    private String getMessage(String code) {
+    private String getResponse(String code) {
         return messageSource.getMessage(code, null, Locale.getDefault());
     }
 }

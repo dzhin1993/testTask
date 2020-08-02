@@ -18,7 +18,8 @@ public class City {
     private Integer id;
 
     @NotBlank
-    private String city;
+    @Column(name = "city")
+    private String name;
 
     @NotBlank
     private String message;

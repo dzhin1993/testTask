@@ -1,8 +1,6 @@
 package zhynkoilya.tourist_bot.controller.handler;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -19,7 +17,6 @@ import static org.springframework.http.HttpStatus.*;
 
 @Slf4j
 @RestControllerAdvice(basePackageClasses = TouristBotRestController.class)
-@Order(Ordered.HIGHEST_PRECEDENCE + 6)
 public class ExceptionInfoHandler {
 
     @ResponseStatus(UNPROCESSABLE_ENTITY)

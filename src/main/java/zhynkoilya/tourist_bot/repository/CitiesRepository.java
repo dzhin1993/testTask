@@ -13,7 +13,7 @@ import static zhynkoilya.tourist_bot.util.CityValidationUtil.*;
 @Repository
 public interface CitiesRepository extends JpaRepository<City, Integer> {
 
-    City getByCity(String city);
+    City getByName(String name);
 
     default City get(int id) {
         return checkFoundOptional(findById(id), id);
